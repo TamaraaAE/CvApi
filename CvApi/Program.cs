@@ -1,4 +1,5 @@
 using CvApi.Data;
+using CvApi.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace CvApi
@@ -15,6 +16,7 @@ namespace CvApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<IProfileService, ProfileService>();
 
             builder.Services.AddDbContext<CvDbContext>(options =>
             options.UseSqlite("Data Source=cv.db"));
